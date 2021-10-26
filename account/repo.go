@@ -2,6 +2,7 @@ package account
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/go-kit/kit/log"
 	"github.com/pkg/errors"
@@ -30,7 +31,7 @@ func (r *repo) CreateUser(ctx context.Context, user User) error {
 	}
 
 	r.store[user.ID] = user
-	logger.Log("store after saving", r.store)
+	logger.Log("store after saving", fmt.Sprint(r.store))
 	return nil
 }
 
