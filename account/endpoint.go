@@ -22,14 +22,14 @@ func makeCreateUserEndpoint(s Service) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (interface{}, error) {
 		req := request.(CreateUserRequest)
 		id, err := s.CreateUser(ctx, req.Email, req.Password)
-		return CreateUserResponse{Id: id}, err
+		return CreateUserResponse{ID: id}, err
 	}
 }
 
 func makeGetUserEndpoint(s Service) endpoint.Endpoint {
 	return func(ctx context.Context, request interface{}) (interface{}, error) {
 		req := request.(GetUserRequest)
-		email, err := s.GetUser(ctx, req.Id)
+		email, err := s.GetUser(ctx, req.ID)
 		return GetUserResponse{Email: email}, err
 	}
 }

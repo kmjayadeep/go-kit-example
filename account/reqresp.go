@@ -15,11 +15,11 @@ type (
 	}
 
 	CreateUserResponse struct {
-		ok string `json:"id"`
+		ID string `json:"id"`
 	}
 
 	GetUserRequest struct {
-		Id string `json:"id"`
+		ID string `json:"id"`
 	}
 
 	GetUserResponse struct {
@@ -46,7 +46,7 @@ func decodeUserReq(ctx context.Context, r *http.Request) (interface{}, error) {
 func decodeEmailReq(ctx context.Context, r *http.Request) (interface{}, error) {
 	vars := mux.Vars(r)
 	req := GetUserRequest{
-		Id: vars["id"],
+		ID: vars["id"],
 	}
 
 	return req, nil
